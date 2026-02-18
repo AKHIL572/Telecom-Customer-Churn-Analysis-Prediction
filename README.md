@@ -1,42 +1,66 @@
-# 📊 Customer Churn Analysis & Prediction System
+# 📊 Telecom Customer Churn Prediction & Business Dashboard
 
-## 📌 Project Overview
-Customer churn is a critical business problem for subscription-based companies.  
-This project delivers an **end-to-end customer churn analysis and prediction system** using **Python, Machine Learning, Power BI, and Streamlit**.
+## 🚀 Project Overview
 
-The goal is to:
-- Understand why customers churn
-- Identify high-risk customer segments
-- Quantify revenue impact
-- Predict churn using a machine learning model
-- Present insights through interactive dashboards
+Customer churn is one of the biggest challenges in the telecom industry.  
+This project builds a **Machine Learning model** to predict customer churn and provides an **interactive business dashboard** to analyze churn drivers and revenue risk.
 
----
+The system helps answer:
 
-## 🚀 Key Features
-- Complete data science pipeline (EDA → Modeling → Deployment)
-- Interactive **Power BI dashboards** (3 pages)
-- **Streamlit web app** for real-time churn prediction
-- Business-focused insights with revenue impact
-- Interview-ready, industry-standard project structure
+- Which customers are likely to leave?
+- What factors drive churn?
+- How much revenue is at risk?
+- What business actions should be taken?
 
 ---
 
-## 🗂️ Project Structure
+## 🎯 Business Objectives
+
+- Predict customer churn using Machine Learning
+- Identify key churn drivers
+- Estimate revenue at risk
+- Provide actionable insights through a dashboard
+
+---
+
+## 🧠 Machine Learning Approach
+
+- Data Cleaning & Preprocessing
+- Feature Engineering
+- Model Training (Random Forest Classifier)
+- Model Evaluation
+- Model Saving for Inference
+- Deployment using Streamlit
+
+---
+
+## 📂 Project Structure
+
 ```
-├── Notebook
-|   ├── data_understanding.ipynb
-|   ├── EDA.ipynb
-|   └── preprocessing_and_modeling.ipynb
-├── Model
-|   └── churn_model.pkl
-├── Streamlit_app/
-│   ├── app.py
-│   └── requirements.txt
-├── Power_BI/
-│   └── Customer_Churn_Analysis.pbix
+TELECOM_CHURN/
+│
 ├── Dataset/
-│   └── churn_data.csv
+│ ├── churn_dataset.csv # Raw dataset
+│ └── cleaned_dataset.csv # Cleaned dataset
+│
+├── Models/
+│ ├── best_model.pkl # Trained ML model
+│ └── preprocessor.pkl # Saved preprocessing pipeline
+│
+├── Notebook/
+│ ├── 1_data_understanding.ipynb
+│ ├── 2_EDA.ipynb
+│ └── 3_preprocessing_&_modeling.ipynb
+│
+├── src/
+│ ├── data_loader.py
+│ ├── preprocessing.py
+│ ├── feature_engineering.py
+│ ├── train.py
+│ └── predict.py
+│
+├── app.py # Streamlit Dashboard
+├── requirements.txt
 └── README.md
 
 ```
@@ -44,130 +68,88 @@ The goal is to:
 
 ---
 
-## 📁 1️⃣ Data Understanding
-- Loaded and explored the raw churn dataset
-- Checked:
-  - Data types
-  - Missing values
-  - Target variable distribution
-- Built foundational understanding of customer attributes and churn behavior
+## 📊 Dashboard Features
 
----
-
-## 📁 2️⃣ Exploratory Data Analysis (EDA)
-Performed detailed analysis to uncover churn drivers.
-
-### Key Insights:
-- **Month-to-month contract customers churn the most**
-- Churn decreases significantly with longer tenure
-- Customers without **Tech Support** or **Online Security** have higher churn
-- **Electronic check** users show higher churn rates
-- Senior citizens churn more compared to non-seniors
-
-### Visuals Used:
-- Bar charts & stacked columns
-- Line charts (tenure vs churn rate)
-- Distribution and comparison plots
-
----
-
-## 📁 3️⃣ Preprocessing & Modeling
-### Data Preprocessing:
-- Label Encoding / One-Hot Encoding
-- Feature scaling
-- Handling categorical and numerical variables
-
-### Modeling:
-- Built a churn prediction model
-- Evaluated using:
-  - Accuracy
-  - Precision
-  - Recall
-  - ROC-AUC
-
----
-
-## 📊 Power BI Dashboards (3 Pages)
-
-### 🔹 Page 1: Customer Churn Overview
+### 🔹 Business KPIs
 - Total Customers
-- Churned Customers
 - Churn Rate (%)
-- Churn by Contract Type
+- Churned Customers
+- 💰 Revenue at Risk (Monthly)
 
-**Insight:**  
-Month-to-month customers contribute the highest churn.
+### 🔹 Business Insight Visualizations
+- Contract Type vs Churn (Key churn driver)
+- Average Monthly Charges by Churn
 
----
-
-### 🔹 Page 2: Customer Lifecycle & Revenue Impact
-- Total Monthly Revenue
-- Revenue Lost Due to Churn
-- Revenue Retained
-- Churn Rate vs Tenure
-- Average Monthly Charges (Churn vs Non-Churn)
-
-**Interview Gold Line:**  
-> High-value customers are more likely to churn.
+### 🔹 ML Prediction Tool
+- Predict churn probability for new customers
+- Risk classification (Low / Medium / High)
 
 ---
 
-### 🔹 Page 3: Churn Drivers & Customer Segments
-- Service usage vs churn:
-  - Internet Service
-  - Tech Support
-  - Online Security
-- Payment method analysis
-- Demographic segmentation:
-  - Senior Citizen
-  - Dependents
+## 💰 Revenue at Risk
 
-**Insight:**  
-Customers without tech support churn significantly more.
+Revenue at Risk is calculated as:
+Sum of Monthly Charges of churned customers
+
+
+This gives an estimate of potential monthly revenue loss if no retention strategy is implemented.
 
 ---
 
-## 🌐 Streamlit Web App
-- User-friendly churn prediction dashboard
-- Accepts customer inputs
-- Predicts churn in real time
-- Designed for business users and stakeholders
+## ⚙️ Installation
 
----
+### 1️⃣ Clone the repository
 
-## 🛠️ Tools & Technologies
-- **Python** (Pandas, NumPy, Scikit-learn)
-- **Power BI**
-- **Streamlit**
-- **Matplotlib & Seaborn**
-- **Machine Learning**
+```bash
+git clone https://github.com/your-username/telecom-churn-project.git
+cd telecom-churn-project
+```
+Install dependencies
+```bash
+pip install -r requirements.txt
+```
+Run the application
+```bash
+streamlit run app.py
+```
+Model Training (Optional)
 
----
+If you want to retrain the model:
+``` bash
+python src/train.py
+```
+To run prediction script separately:
+```
+python src/predict.py
+```
 
-## 🎯 Business Value
-- Identifies high-risk customers early
-- Helps reduce churn through targeted actions
-- Quantifies revenue loss due to churn
-- Enables data-driven decision-making
+## 📈 Key Insights from Analysis
 
----
+- Month-to-month contract customers have the highest churn rate.
+- Customers with higher monthly charges tend to churn more.
+- Contract type is one of the strongest churn predictors.
+- Significant recurring revenue is at risk due to churn.
 
-## 🧾 Resume-Ready Summary
-> Built an end-to-end Customer Churn Prediction system using Python, Machine Learning, Power BI dashboards, and a Streamlit web app to deliver actionable business insights and churn predictions.
+## 🛠 Technologies Used
 
----
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib
+- Seaborn
+- Streamlit
+- Joblib
 
 ## 📌 Future Improvements
-- Deploy Streamlit app to cloud
-- Try advanced models (XGBoost, Random Forest)
-- Add customer lifetime value (CLV) analysis
-- Automate data refresh in Power BI
 
----
+- Deploy model using cloud services (AWS / GCP / Azure)
+- Add SHAP explainability
+- Predict revenue at risk using model probabilities
+- Add retention strategy simulation
+- Connect to live database
 
-## 👤 Author
-**Akhil T V**
+## 👨‍💻 Author
+Akhil T V
 
----
-
-⭐ If you found this project useful, feel free to star the repository!
+If you found this project helpful, feel free to ⭐ the repository!

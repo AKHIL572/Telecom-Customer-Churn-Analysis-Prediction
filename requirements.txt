@@ -1,7 +1,17 @@
-streamlit
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
-joblib
+# Pinned for reproducibility (Gap #10). These are stable, widely-used
+# versions as of this project's development -- NOT copied from this
+# review environment, which runs unusually new/pre-release versions
+# (pandas 3.0, scikit-learn 1.8) that most real setups won't have.
+#
+# To match your own working environment exactly instead, run:
+#   pip freeze > requirements.txt
+# after confirming train.py, predict.py, and app.py all run correctly.
+ 
+streamlit==1.29.0
+pandas==2.1.4
+numpy==1.26.3
+scikit-learn==1.3.2
+matplotlib==3.8.2
+seaborn==0.13.1
+joblib==1.3.2
+scipy==1.11.4
